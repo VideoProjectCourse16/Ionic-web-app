@@ -1,2 +1,1 @@
-# Ionic-web-app
-fake prime video
+run npm install
