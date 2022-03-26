@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  primeEndpoint:'https://videoprojectcourse16.herokuapp.com/'
 };
