@@ -7,12 +7,16 @@ export interface UserSignup {
     surname: string;
     username: string;
     password: string;
-    repeatPassword:string;
+    repeatPassword: string;
 }
 export interface User {
+    username: string;
+    id: string;
     name: string;
     surname: string;
-    username: string;
-    password: string;
-    repeatPassword:string;
+    iat: number;
+}
+export interface ResponseMe {
+    message: string;
+    user: User;
 }
