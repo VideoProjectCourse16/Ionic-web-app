@@ -14,19 +14,19 @@ const { primeEndpoint } = environment;
 export class PrimeService {
   constructor(private httpClient: HttpClient, private router: Router) { }
   accessToken:string;
+  setAccessToken(token: string) {
+    this.accessToken = token;
+  }
   allMovies() {
-    return this.httpClient.get(`${primeEndpoint}/movies`).toPromise() as Promise<Movie[]>;
+    return this.httpClient.get(`${primeEndpoint}movies`).toPromise() as Promise<Movie[]>;
   }
   signup(user: UserSignup) {
-    return this.httpClient.post(`${primeEndpoint}/auth/signup`, user).subscribe();
+    return this.httpClient.post(`${primeEndpoint}auth/signup`, user,{observe: 'response'});
   }
 
   signin(user: UserSignin) {
-     this.httpClient.post(`${primeEndpoint}/auth/signin`, user,{responseType: 'json'}).subscribe(response=>{
-      let {user}=response as unknown as SigninResponse
-      this.accessToken=user.token}) 
-    return this.httpClient.post(`${primeEndpoint}/auth/signin`, user).subscribe();
-  }
+     return this.httpClient.post(`${primeEndpoint}auth/signin`, user,{observe: 'response'});
+    }
   personalInfo(){
     var reqHeader = new HttpHeaders({ 
       'Content-Type': 'application/json',

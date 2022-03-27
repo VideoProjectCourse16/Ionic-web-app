@@ -13,25 +13,36 @@
       <ion-col class="background" align-self-center>
         <form>
           <ion-item lines="full">
-            <ion-label position="floating">First Name</ion-label>
-            <ion-input type="text" required></ion-input>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" placeholder="Enter your name" [(ngModel)]="user.name"
+              [ngModelOptions]="{standalone: true}" required #name></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="floating">Last Name</ion-label>
-            <ion-input type="text" required></ion-input>
+            <ion-label position="floating">Surname</ion-label>
+            <ion-input type="text" placeholder="Enter your surname" [(ngModel)]="user.surname"
+              [ngModelOptions]="{standalone: true}" required #surname></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="text" required></ion-input>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input type="text" placeholder="Enter your username" [(ngModel)]="user.username"
+              [ngModelOptions]="{standalone: true}" required #username></ion-input>
           </ion-item>
           <ion-item lines="full">
             <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" required></ion-input>
+            <ion-input type="password" placeholder="Enter your password" [(ngModel)]="user.password"
+              [ngModelOptions]="{standalone: true}" required #password></ion-input>
           </ion-item>
-
+          <ion-item lines="full">
+            <ion-label position="floating">Repeat Password</ion-label>
+            <ion-input type="password" placeholder="Repeat your password" [(ngModel)]="user.repeatPassword"
+              [ngModelOptions]="{standalone: true}" required #repeatPassword></ion-input>
+          </ion-item>
           <ion-row>
             <ion-col>
-              <ion-button type="submit" color="danger">Sign Up</ion-button>
+              <ion-button type="submit" color="danger" (click)="addUser()">Sign Up</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button type="submit" (click)="goToLogin()" color="danger">Login</ion-button>
             </ion-col>
           </ion-row>
         </form>
