@@ -20,6 +20,9 @@ export class PrimeService {
   allMovies() {
     return this.httpClient.get(`${primeEndpoint}movies`).toPromise() as Promise<Movie[]>;
   }
+  specificMovie(id:number) {
+    return this.httpClient.get(`${primeEndpoint}movies/${id}`);
+  }
   signup(user: UserSignup) {
     return this.httpClient.post(`${primeEndpoint}auth/signup`, user,{observe: 'response'});
   }

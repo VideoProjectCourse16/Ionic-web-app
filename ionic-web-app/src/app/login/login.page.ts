@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
 
   }
   goToSignup() {
-    return this.router.navigate(['registration']);
+    return this.router.navigate(['signup']);
   }
   async successLogin(message: string) {
     //FAI BENE QUESTO

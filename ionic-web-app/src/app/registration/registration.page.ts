@@ -33,7 +33,7 @@ export class RegistrationPage implements OnInit {
       });
   }
   goToLogin() {
-    return this.router.navigate(['login']);
+    return this.router.navigate(['signin']);
   }
   async wrongDatas(message:string) {
     //FAI BENE QUESTO
