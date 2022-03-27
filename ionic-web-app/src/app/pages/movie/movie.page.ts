@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/models/movies.model';
+import { Movie, ResponseSpecificMovie } from 'src/app/models/movies.model';
 import { PrimeService } from 'src/app/services/prime.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class MoviePage implements OnInit {
 
   async ngOnInit() {
     await this.PrimeService.specificMovie(10138).subscribe(response => {
-      let obj = response as any;
-      this.movie = obj.movie;
+      let {movie} = response as ResponseSpecificMovie;
+      this.movie = movie;
     });
   }
 }

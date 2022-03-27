@@ -12,3 +12,6 @@ export interface Movie {
     adult: boolean;
     vote_average: number;
 }
+export interface ResponseSpecificMovie{
+    movie:Movie;
+}
