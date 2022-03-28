@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { MoviePage } from '../pages/movie/movie.page';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { MoviePage } from '../pages/movie/movie.page';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page,CarouselComponent]
 })
 export class Tab1PageModule {}
