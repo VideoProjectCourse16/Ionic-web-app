@@ -14,10 +14,14 @@ const { primeEndpoint } = environment;
 })
 export class PrimeService {
   constructor(private httpClient: HttpClient, private router: Router) { }
-  accessToken: string;
+  accessToken: string|null=null;
   setAccessToken(token: string) {
     this.accessToken = token;
   }
+    reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Token': 'Bearer ' + this.accessToken!
+  });
   //MOVIES-------
   allMovies() {
     return this.httpClient.get(`${primeEndpoint}movies`).toPromise() as Promise<Movie[]>;
@@ -27,44 +31,31 @@ export class PrimeService {
   }
   //--------MOVIES
 
-  //AUTH----------
+  //AUTH----------git
   signup(user: UserSignup) {
     return this.httpClient.post(`${primeEndpoint}auth/signup`, user, { observe: 'response' });
   }
   signin(user: UserSignin) {
     return this.httpClient.post(`${primeEndpoint}auth/signin`, user, { observe: 'response' });
   }
-  
+
   personalInfo() {
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Token': 'Bearer ' + this.accessToken
-    });
-    return this.httpClient.get(`${primeEndpoint}/auth/me`, { headers: reqHeader }).toPromise() as Promise<ResponseMe>;
+    return this.httpClient.get(`${primeEndpoint}/auth/me`, { headers: this.reqHeader! }).toPromise() as Promise<ResponseMe>;
+  }
+  logout(){
+    this.setAccessToken(null);
   }
   //-----------AUTH
 
   //USERS-----------
   getFavorites() {
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Token': 'Bearer ' + this.accessToken
-    });
-    return this.httpClient.get(`${primeEndpoint}users/favorites`, { headers: reqHeader }).toPromise() as Promise<Favorites>;
+    return this.httpClient.get(`${primeEndpoint}users/favorites`, { headers: this.reqHeader! }).toPromise() as Promise<Favorites>;
   }
   addFavorite(movie: Movie) {
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Token': 'Bearer ' + this.accessToken
-    });
-    return this.httpClient.post(`${primeEndpoint}users/favorites`, movie, { observe: 'response', headers: reqHeader });
+    return this.httpClient.post(`${primeEndpoint}users/favorites`, movie, { observe: 'response', headers: this.reqHeader! });
   }
   removeFavorite(userID: string, movieID: string) {
-    var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Token': 'Bearer ' + this.accessToken
-    });
-    return this.httpClient.delete(`${primeEndpoint}users/${userID}/favorites/${movieID}`, { observe: 'response', headers: reqHeader });
+    return this.httpClient.delete(`${primeEndpoint}users/${userID}/favorites/${movieID}`, { observe: 'response', headers: this.reqHeader });
 
   }
   //-----------USERS
