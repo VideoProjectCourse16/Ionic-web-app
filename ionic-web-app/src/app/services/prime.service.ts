@@ -51,7 +51,7 @@ export class PrimeService {
   getFavorites() {
     return this.httpClient.get(`${primeEndpoint}users/favorites`, { headers: this.reqHeader! }).toPromise() as Promise<Favorites>;
   }
-  addFavorite({id}:Movie) {
+  addFavorite(id:number) {
     return this.httpClient.post(`${primeEndpoint}users/favorites`, id, { observe: 'response', headers: this.reqHeader! });
   }
   removeFavorite(userID: string, movieID: string) {
