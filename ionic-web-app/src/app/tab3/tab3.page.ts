@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { PrimeService } from '../services/prime.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
-  constructor() {}
+  
+  constructor(private service: PrimeService, private router: Router) { }
+  isTokenSetted: boolean = false;
+  async ngOnInit() {
+    this.isTokenSetted = (this.service.accessToken) ? true : false
+  }
 
 }

@@ -24,24 +24,14 @@ export class LoginPage implements OnInit {
   async checklogin() {
     this.PrimeService
       .signin(this.user).subscribe(response => {
-        // You can access status:
-        // console.log("RESPONSE BODY", response.body);
-        // console.log("LIONGRAM.LOGIN SERVICE STATUS", response.status!)
         if (response.status === 200) {
-          // if (this.keepConnection) {
-          //   this.storage.set('isAuthorized', true);
-          // }
-          // this.storage.set('user', this.loginUser.username);
-          //console.log("SEI STATO AUTENTICATO PERCHE' LO STATUS E' ", response.status);
           let { user } = response.body as unknown as SigninResponse;
           this.PrimeService.setAccessToken(user.token!);
-          // console.log("LOGIN Token", this.PrimeService.accessToken);
           setTimeout(() => {
-            //this.router.navigate([`home/${this.loginUser.username}`]);
+            this.router.navigate([`/personal`]);
             this.user.username = "";
             this.user.password = "";
             this.successLogin(response.statusText)
-            //this.keepConnection = false;
           }, 1000);
         }
       }, err => {

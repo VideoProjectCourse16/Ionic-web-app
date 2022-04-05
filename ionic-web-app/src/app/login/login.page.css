@@ -1,0 +1,20 @@
+.background {
+  background-color: #a19595;
+  margin: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  size: 8px;
+  margin-left: 40px;
+}
+/*# sourceMappingURL=login.page.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,IAAI;CACtB;;AAED,AAAA,KAAK,CAAC;EACF,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,IAAI,EAAE,GAAG;EACT,WAAW,EAAE,IAAI;CACpB",
+    "sources": [
+        "login.page.scss"
+    ],
+    "names": [],
+    "file": "login.page.css"
+}

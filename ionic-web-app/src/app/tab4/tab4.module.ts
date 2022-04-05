@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
+import { PersonalPage } from '../pages/personal/personal.page';
+import { LoginPage } from '../login/login.page';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { Tab4Page } from './tab4.page';
     IonicModule,
     Tab4PageRoutingModule
   ],
-  declarations: [Tab4Page]
+  declarations: [Tab4Page,PersonalPage,LoginPage]
 })
 export class Tab4PageModule {}

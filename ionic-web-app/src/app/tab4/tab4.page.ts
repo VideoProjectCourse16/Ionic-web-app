@@ -10,18 +10,9 @@ import { PrimeService } from '../services/prime.service';
 })
 export class Tab4Page implements OnInit {
 
-  user: User = {} as User
-
-  constructor(private service: PrimeService,private router: Router) { }
-
+  constructor(private service: PrimeService, private router: Router) { }
+  isTokenSetted: boolean = false;
   async ngOnInit() {
-    this.user = await this.service.personalInfo().then(response => response.user)
+    this.isTokenSetted=(this.service.accessToken) ? true : false
   }
-
-  logout(){
-    this.service.logout();
-    this.router.navigate(['/signin'])
-  }
-  
-
 }

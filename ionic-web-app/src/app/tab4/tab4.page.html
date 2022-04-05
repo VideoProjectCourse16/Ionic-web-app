@@ -1,17 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>User</ion-title>
+    <ion-title>Personal</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>{{ user.id }}</ion-card-subtitle>
-      <ion-card-title>{{ user.username }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-button color="danger" (click)="logout()">Logout</ion-button>
-    </ion-card-content>
-  </ion-card>
+ <app-personal *ngIf="isTokenSetted"></app-personal> 
+ <app-login *ngIf="!(isTokenSetted)"></app-login> 
 </ion-content>

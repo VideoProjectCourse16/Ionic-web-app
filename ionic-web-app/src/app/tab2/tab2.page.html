@@ -1,41 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    
-    <ion-searchbar placeholder="Filter Schedules" [(ngModel)]="term"></ion-searchbar>
-
+    <ion-searchbar placeholder="Search a movie" [(ngModel)]="term"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-list *ngIf = "isEmptySearch()">
-<ion-item *ngFor = "let item of items |filter:term">
-  <ion-label> {{item?.name}}</ion-label>
-</ion-item>
+  <ion-list *ngIf="isEmptySearch()">
+    <ion-item *ngFor="let item of items |filter:term">
+      <ion-label> {{item?.name}}</ion-label>
+    </ion-item>
   </ion-list>
-  
-
-
-
-
- <!--  <ion-searchbar >
-    
-  <!--   <input type="text" [(ngModel)]="term">
-    <div *ngFor = "let movie of allMovies  |filter:term" >
-      <p>
-        {{movie.name}}
-      </p>
-    </div>
- 
-  </ion-searchbar> -->
-
-
-   <!--  <input type="text" [(ngModel)]="term">
-    <div *ngFor = "let item of items |filter:term" >
-      <p>
-        {{item.name}}
-      </p>
-    </div> -->
-
-<!--<app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>
