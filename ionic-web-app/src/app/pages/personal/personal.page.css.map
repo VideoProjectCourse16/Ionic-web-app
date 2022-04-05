@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACL,SAAS,EAAE,IAAI;CAChB",
+    "sources": [
+        "personal.page.scss"
+    ],
+    "names": [],
+    "file": "personal.page.css"
+}
