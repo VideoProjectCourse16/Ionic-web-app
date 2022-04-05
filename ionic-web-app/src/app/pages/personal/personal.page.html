@@ -1,0 +1,14 @@
+<ion-content fullscreen>
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="happy-outline"></ion-icon>
+      <ion-card-title> Hi {{ user?.username }}!</ion-card-title>
+      <ion-card-subtitle> name: {{ user?.name }}</ion-card-subtitle>
+      <ion-card-subtitle> surname: {{ user?.surname }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>We hope you'll enjoy navigating through the app</p>
+      <ion-button color="danger" (click)="logout()">Logout</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
