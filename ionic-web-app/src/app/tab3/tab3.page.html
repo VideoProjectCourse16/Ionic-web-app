@@ -5,6 +5,6 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <app-personal *ngIf="isTokenSetted"></app-personal>
+  <p *ngIf="isTokenSetted">Favorites:</p>
   <app-login *ngIf="!(isTokenSetted)"></app-login>
 </ion-content>
