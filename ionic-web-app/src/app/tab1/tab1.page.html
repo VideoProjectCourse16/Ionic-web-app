@@ -12,5 +12,9 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-  <app-carousel></app-carousel>
+  <app-carousel [movies]="movies" [genre]="genres.top"></app-carousel>
+  <app-carousel [movies]="actionMovies" [genre]="genres.action"></app-carousel>
+  <app-carousel [movies]="adventureMovies" [genre]="genres.adventure"></app-carousel>
+
+
 </ion-content>
