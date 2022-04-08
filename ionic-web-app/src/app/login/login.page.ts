@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
           let { user } = response.body as unknown as SigninResponse;
           this.PrimeService.setAccessToken(user.token!);
           setTimeout(() => {
-            this.router.navigate([`/personal`]);
+            this.router.navigate([`tab4`]);
             this.user.username = "";
             this.user.password = "";
             this.successLogin(response.statusText)
