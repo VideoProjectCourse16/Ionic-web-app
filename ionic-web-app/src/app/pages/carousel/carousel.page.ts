@@ -20,7 +20,7 @@ export class CarouselPage implements OnInit {
   }
   
   goToSpecificMovie(idMovie:string){
-   this.router.navigate(['movie'], {state: {idMovie}})
+   this.router.navigate([ `/movie/${idMovie}` ], {state: {idMovie}});
     
   }
 

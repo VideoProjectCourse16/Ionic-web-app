@@ -16,6 +16,6 @@ import { TabsPage } from 'src/app/tabs/tabs.page';
     IonicModule,
     CarouselPageRoutingModule
   ],
-  declarations: [CarouselPage,TabsPage]
+  declarations: [CarouselPage]
 })
 export class CarouselPageModule {}

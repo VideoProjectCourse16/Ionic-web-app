@@ -27,7 +27,19 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
-      }
+      },
+      {
+        path: 'personal',
+        loadChildren: () => import('../pages/personal/personal.module').then( m => m.PersonalPageModule)
+      },
+      {
+        path: 'signup',
+        loadChildren: () => import('../registration/registration.module').then( m => m.RegistrationPageModule)
+      },
+      {
+        path: 'signin',
+        loadChildren: () => import('../login/login.module').then( m => m.LoginPageModule)
+      },
     ]
   },
   {

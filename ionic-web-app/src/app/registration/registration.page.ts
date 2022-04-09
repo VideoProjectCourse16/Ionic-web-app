@@ -25,7 +25,7 @@ export class RegistrationPage implements OnInit {
         if (response.status === 200) {
           this.rightDatas(response.statusText);
           setTimeout(() => {
-            this.router.navigate(['/login']);
+            this.router.navigate(['tabs/login']);
           }, 1500);
         }
       },err=>{
@@ -33,7 +33,7 @@ export class RegistrationPage implements OnInit {
       });
   }
   goToLogin() {
-    return this.router.navigate(['signin']);
+    return this.router.navigate(['tabs/signin']);
   }
   async wrongDatas(message:string) {
     //FAI BENE QUESTO

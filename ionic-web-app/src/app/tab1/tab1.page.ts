@@ -19,6 +19,7 @@ export class Tab1Page implements OnInit {
     this.movies=await this.PrimeService.allMovies();
     this.actionMovies=this.movies.filter(movie=>movie.genre==genres.action)
     this.adventureMovies=this.movies.filter(movie=>movie.genre==genres.adventure)
+    this.movies.length=10;
     console.log(this.actionMovies.length)
   }
 }

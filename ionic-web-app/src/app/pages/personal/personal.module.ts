@@ -15,6 +15,6 @@ import { PersonalPage } from './personal.page';
     IonicModule,
     PersonalPageRoutingModule
   ],
-  declarations: [PersonalPage]
+  declarations: []
 })
 export class PersonalPageModule {}
