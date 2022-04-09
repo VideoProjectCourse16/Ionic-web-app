@@ -42,9 +42,6 @@ export class PrimeService {
     });
     return this.httpClient.get(`${primeEndpoint}auth/me`, { headers: reqHeader! }).toPromise() as Promise<ResponseMe>;
   }
-  logout() {
-    this.setAccessToken(null);
-  }
   //-----------AUTH
 
   //USERS-----------

@@ -19,7 +19,7 @@ export class PersonalPage implements OnInit {
   }
 
   logout(){
-    this.service.logout();
-    this.router.navigate(['/signin'])
+    this.service.setAccessToken(null);
+    this.router.navigate(['/signin'],{replaceUrl:true})
   }
 }

@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Movie } from '../models/movies.model';
-import { PrimeService } from '../services/prime.service';
+import { Movie } from '../../models/movies.model';
+import { PrimeService } from '../../services/prime.service';
 
 @Component({
   selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss'],
+  templateUrl: './carousel.page.html',
+  styleUrls: ['./carousel.page.scss'],
 })
-export class CarouselComponent implements OnInit {
+export class CarouselPage implements OnInit {
   @Input() movies: Movie[];
   @Input() genre: string;
 
@@ -20,7 +20,7 @@ export class CarouselComponent implements OnInit {
   }
   
   goToSpecificMovie(idMovie:string){
-   this.router.navigate(['movie'], {state: {data: {idMovie}}})
+   this.router.navigate(['movie'], {state: {idMovie}})
     
   }
 

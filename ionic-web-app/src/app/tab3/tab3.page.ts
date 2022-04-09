@@ -12,7 +12,8 @@ export class Tab3Page {
   constructor(private service: PrimeService, private router: Router) { }
   isTokenSetted: boolean = false;
   async ngOnInit() {
-    this.isTokenSetted = (this.service.accessToken) ? true : false
+    this.isTokenSetted = (this.service.accessToken!==null) ? true : false
+    
   }
 
 }

@@ -37,7 +37,11 @@ const routes: Routes = [
   {
     path: 'personal',
     loadChildren: () => import('./pages/personal/personal.module').then( m => m.PersonalPageModule)
+  },  {
+    path: 'carousel',
+    loadChildren: () => import('./pages/carousel/carousel.module').then( m => m.CarouselPageModule)
   }
+
 
 
 
