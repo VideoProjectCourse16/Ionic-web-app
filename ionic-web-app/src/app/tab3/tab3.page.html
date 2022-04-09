@@ -1,10 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Favorites</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Favorites</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  <p *ngIf="isTokenSetted">Favorites:</p>
-  <app-login *ngIf="!(isTokenSetted)"></app-login>
+    <p *ngIf="isTokenSetted">Favorites:</p>
+    <app-login *ngIf="!(isTokenSetted)"></app-login>
+
+    <div *ngFor="let item of Favorites">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <ion-card-subtitle>{{item.genre}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <iframe width="270" height="250" [src]="getEmbeded()" frameborder="0" autosummary="true"></iframe>
+                <ion-icon name="star"></ion-icon>
+            </ion-card-content>
+            <ion-card-content>{{item.plot}}</ion-card-content>
+        </ion-card>
+    </div>
 </ion-content>
