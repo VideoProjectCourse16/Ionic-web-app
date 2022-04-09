@@ -19,6 +19,6 @@ import { PersonalPage } from '../pages/personal/personal.page';
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     Tab3PageRoutingModule,
   ],
-  declarations: [Tab3Page,PersonalPage,LoginPage]
+  declarations: [Tab3Page,PersonalPage,LoginPage,]
 })
 export class Tab3PageModule {}
