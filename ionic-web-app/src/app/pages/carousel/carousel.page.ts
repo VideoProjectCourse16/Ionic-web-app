@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../../models/movies.model';
 import { PrimeService } from '../../services/prime.service';
 
@@ -12,7 +12,7 @@ export class CarouselPage implements OnInit {
   @Input() movies: Movie[];
   @Input() genre: string;
 
-  constructor(private service :PrimeService,private router: Router) { }
+  constructor(private service :PrimeService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     
@@ -20,7 +20,7 @@ export class CarouselPage implements OnInit {
   }
   
   goToSpecificMovie(idMovie:string){
-   this.router.navigate([ `/movie/${idMovie}` ], {state: {idMovie}});
+   this.router.navigate([ `../single-movie/${idMovie}` ], {state: {idMovie}, relativeTo:this.route});
     
   }
 

@@ -15,8 +15,12 @@ const { primeEndpoint } = environment;
 export class PrimeService {
   constructor(private httpClient: HttpClient, private router: Router) { }
   accessToken: string | null = null;
+  urlRequested:string |undefined=''
   setAccessToken(token: string) {
     this.accessToken = token;
+  }
+  setUrl(url: string) {
+    this.urlRequested = url;
   }
   //MOVIES-------
   allMovies() {

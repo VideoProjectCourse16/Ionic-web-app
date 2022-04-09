@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list *ngIf="isEmptySearch()">
-    <ion-item *ngFor="let movie of allMovies |filter:term" (click)="goToSpecificMovie(movie.id)">
+    <ion-item *ngFor="let movie of allMovies | filter:term" (click)="goToSpecificMovie(movie.id)">
       <ion-label> {{movie?.title}}</ion-label>
     </ion-item>
   </ion-list>

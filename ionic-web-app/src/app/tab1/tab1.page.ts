@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { genres } from '../genres';
+import { mockMovies } from '../models/movieMock';
 import { Movie } from '../models/movies.model';
 import { PrimeService } from '../services/prime.service';
 
@@ -16,7 +17,7 @@ export class Tab1Page implements OnInit {
   genres=genres;
   constructor(private PrimeService: PrimeService,private router:Router) {}
   async ngOnInit() {
-    this.movies=await this.PrimeService.allMovies();
+    this.movies=mockMovies; //await this.PrimeService.allMovies();
     this.actionMovies=this.movies.filter(movie=>movie.genre==genres.action)
     this.adventureMovies=this.movies.filter(movie=>movie.genre==genres.adventure)
     this.movies.length=10;

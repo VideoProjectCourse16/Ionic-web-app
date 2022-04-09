@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SingleMovieComponent } from './single-movie.component';
+import { SingleMoviePage } from './single-movie.page';
 
-describe('SingleMovieComponent', () => {
-  let component: SingleMovieComponent;
-  let fixture: ComponentFixture<SingleMovieComponent>;
+describe('SingleMoviePage', () => {
+  let component: SingleMoviePage;
+  let fixture: ComponentFixture<SingleMoviePage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SingleMovieComponent ],
+      declarations: [ SingleMoviePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SingleMovieComponent);
+    fixture = TestBed.createComponent(SingleMoviePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

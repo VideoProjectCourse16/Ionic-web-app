@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { UserSignup } from '../models/user.model';
 import { PrimeService } from '../services/prime.service';
@@ -14,18 +14,20 @@ export class RegistrationPage implements OnInit {
   constructor(
     private PrimeService: PrimeService,
     private router: Router,
+    private route: ActivatedRoute,
     private toastController: ToastController
   ) { }
 
   ngOnInit() {
   }
+
   async addUser() {
     this.PrimeService
       .signup(this.user).subscribe(response => {
         if (response.status === 200) {
           this.rightDatas(response.statusText);
           setTimeout(() => {
-            this.router.navigate(['tabs/login']);
+            this.router.navigate(['tabs/signin'], {replaceUrl:true});
           }, 1500);
         }
       },err=>{
