@@ -7,9 +7,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TabsPage } from './tabs/tabs.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,TabsPage],
   entryComponents: [],
   imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

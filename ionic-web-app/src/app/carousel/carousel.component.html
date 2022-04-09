@@ -1,13 +1,11 @@
-<!-- 
+
 <h3>{{genre}} movies:</h3>
-<ion-slides>10138movie.idmovie.id10138
-  <ion-slide *ngFor="let movie of movies" (click)="goToSpecificMovie(Movie.id)">
+<ion-slides>
+  <ion-slide *ngFor="let movie of movies" (click)="goToSpecificMovie(movie.id)">
     <div>
       <img [src]=movie.poster_path>
       <h6>{{movie.title}}</h6>
     </div>
   </ion-slide>
-</ion-slides>-->
-
-<ion-button (click)="goToSpecificMovie(10138)"></ion-button>
+</ion-slides>
 
