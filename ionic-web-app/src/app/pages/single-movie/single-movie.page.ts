@@ -5,6 +5,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { mockMovies } from 'src/app/models/movieMock';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 // import {DomSanitizer} from '@angular/platform-browser'
 
 @Component({
@@ -13,15 +14,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./single-movie.page.scss'],
 })
 export class SingleMoviePage implements OnInit {
+  isTokenSetted:boolean = false;
   idMovie: string;
   movie: Movie = {} as Movie;
   urlSafe: SafeResourceUrl;
-  userId: string | null = null
+  user: User | null = null;
   constructor(private service: PrimeService, private router:Router, private sanitizer: DomSanitizer, private route:ActivatedRoute) { }
   async ngOnInit() {
-    // this.idMovie = history.state.idMovie;
-    // this.getMovieById(this.idMovie)
-    this.userId= (await this.service.personalInfo()).user.id
+    this.isTokenSetted= (this.service.accessToken) ? true : false;
+    this.user= (this.service.accessToken) ?(await this.service.personalInfo()).user: null;
      this.route.params.subscribe( params => {
       this.idMovie= params['idMovie'];
      console.log(params['idMovie']);
@@ -31,28 +32,29 @@ export class SingleMoviePage implements OnInit {
     // this.service.specificMovie(Number(this.idMovie)).subscribe((response: Movie) => {
     //   this.movie = response;
     // })
+    this.isFavorite()
     
   }
 
   getMovieById=(id:string)=>{
       this.movie=mockMovies.find(({id:movieId})=>movieId===id)
   }
-
-
+ //sistemare questa funzione, il database non funzionava più
+  async isFavorite(){
+    if(this.service.accessToken){
+      const favoritesUser= await this.service.getFavorites().then(response => response.favorites);
+      const isFavorite=favoritesUser.filter(favorite=>favorite.username===this.user.username && favorite.movieId===this.idMovie)
+      console.log( "isFavorite"+isFavorite);
+    }
+  }
+  //////////////
   getEmbeded() {
     return this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.movie.trailer!)
   }
   addFavorite(){
-    this.service.addFavorite(Number(this.movie.id))
+    this.service.addFavorite(this.movie.id)
   }
   removeFavorite(){
-    this.service.removeFavorite(this.userId,this.movie.id)
+    this.service.removeFavorite(this.user.id,this.movie.id)
   }
-  // addFavorite() {
-  //   this.service.addFavorite(Number(this.movie.id))
-  // }
-  // removeFavorite() {
-    //this.userId = await (await this.service.personalInfo()).user.id
-  //   this.service.removeFavorite(this.userId, this.movie.id)
-  // }
 }

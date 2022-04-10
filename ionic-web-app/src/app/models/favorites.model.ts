@@ -2,10 +2,11 @@ import { Movie } from "./movies.model";
 
 export interface Favorite {
     username: string;
-    movieId: number;
+    movieId: string;
+    id:string;
 }
 
 export interface Favorites{
     message: string,
-    favorites: Movie[]
+    favorites:Favorite[]
   }

@@ -14,11 +14,11 @@
       <ion-card-subtitle>{{movie.genre}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <iframe  width="270" height="250" [src]="getEmbeded()" 
+      <iframe  width="220" height="250" [src]="getEmbeded()" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
        allowTransparency
        allowFullScreen frameborder="0"  autosummary="true"></iframe>
-      <ion-icon name="star"></ion-icon>
+      <ion-icon name="heart" *ngIf="isTokenSetted" (click)="addFavorite()"></ion-icon>
     </ion-card-content>
     <ion-card-content>{{movie.plot}}</ion-card-content>
    </ion-card>

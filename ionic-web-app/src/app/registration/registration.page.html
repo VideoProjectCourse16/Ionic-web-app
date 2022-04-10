@@ -10,7 +10,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col class="background" align-self-center>
+      <ion-col align-self-center>
         <form>
           <ion-item lines="full">
             <ion-label position="floating">Name</ion-label>
@@ -39,10 +39,12 @@
           </ion-item>
           <ion-row>
             <ion-col>
-              <ion-button type="submit" color="danger" (click)="addUser()">Sign Up</ion-button>
+              <ion-button type="submit" expand="block" color="success" (click)="addUser()">Sign Up</ion-button>
             </ion-col>
+          </ion-row>
+          <ion-row>
             <ion-col>
-              <ion-button type="submit" (click)="goToLogin()" color="danger">Login</ion-button>
+              <ion-button type="submit" (click)="goToLogin()" expand="block" color="danger">Login</ion-button>
             </ion-col>
           </ion-row>
         </form>

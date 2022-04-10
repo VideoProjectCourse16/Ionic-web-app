@@ -56,7 +56,7 @@ export class PrimeService {
     });
     return this.httpClient.get(`${primeEndpoint}users/favorites`, { headers: reqHeader! }).toPromise() as Promise<Favorites>;
   }
-  addFavorite(movieId: number) {
+  addFavorite(movieId: string) {
     const reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.accessToken!
