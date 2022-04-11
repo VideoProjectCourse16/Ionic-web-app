@@ -1,7 +1,7 @@
 import { Movie } from 'src/app/models/movies.model';
-import { Favorites } from './../models/favorites.model';
+import { Favorite, Favorites } from './../models/favorites.model';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PrimeService } from '../services/prime.service';
 import {DomSanitizer} from '@angular/platform-browser'
 
@@ -11,21 +11,31 @@ import {DomSanitizer} from '@angular/platform-browser'
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  movie: Movie={} as Movie;
+movie: Movie={} as Movie;
 id:number
 urlSafe:any
 url:string = "https://www.youtube.com/embed/"
 
-  constructor(private service: PrimeService, private router: Router, private sanitizer:DomSanitizer ) { }
+  constructor(private service: PrimeService, private router: Router, private sanitizer:DomSanitizer ,private route: ActivatedRoute) { }
   isTokenSetted: boolean = false;
-  Favorites:Movie[]=[];
+  favorites:Movie[]=[];
   async ngOnInit() {
-    this.isTokenSetted = (this.service.accessToken !== null) ? true : false
-    
+    this.isTokenSetted = (this.service.accessToken !== null) ? true : false;
+    this.getFavorites();
   }
-  getEmbeded(){
-    return this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.movie.trailer)
-   }
 
+  async getFavorites(){
+    const favoritesResponse:Favorite[]=(await this.service.getFavorites()).favorites;
+      favoritesResponse.map(async favorite=>{
+      this.service.specificMovie(Number(favorite.id)).subscribe((response: Movie) => {
+        this.favorites.push(response);
+      })
+    })
+  }
+
+  goToSpecificMovie(idMovie:string){
+    this.router.navigate([ `../single-movie/${idMovie}` ], {state: {idMovie}, relativeTo:this.route});
+     
+   }
 }
 

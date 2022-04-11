@@ -15,6 +15,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class SingleMoviePage implements OnInit {
   isTokenSetted:boolean = false;
+  isFavorite:boolean = false;
   idMovie: string;
   movie: Movie = {} as Movie;
   urlSafe: SafeResourceUrl;
@@ -32,7 +33,7 @@ export class SingleMoviePage implements OnInit {
     // this.service.specificMovie(Number(this.idMovie)).subscribe((response: Movie) => {
     //   this.movie = response;
     // })
-    this.isFavorite()
+    this.checkIsFavorite()
     
   }
 
@@ -40,11 +41,11 @@ export class SingleMoviePage implements OnInit {
       this.movie=mockMovies.find(({id:movieId})=>movieId===id)
   }
  //sistemare questa funzione, il database non funzionava più
-  async isFavorite(){
+  async checkIsFavorite(){
     if(this.service.accessToken){
       const favoritesUser= await this.service.getFavorites().then(response => response.favorites);
       const isFavorite=favoritesUser.filter(favorite=>favorite.username===this.user.username && favorite.movieId===this.idMovie)
-      console.log( "isFavorite"+isFavorite);
+      this.isFavorite= isFavorite.length>0?true:false;
     }
   }
   //////////////

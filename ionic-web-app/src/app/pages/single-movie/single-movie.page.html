@@ -18,7 +18,10 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
        allowTransparency
        allowFullScreen frameborder="0"  autosummary="true"></iframe>
-      <ion-icon name="heart" *ngIf="isTokenSetted" (click)="addFavorite()"></ion-icon>
+       <div *ngIf="isTokenSetted">
+      <ion-icon name="heart" *ngIf="!isFavorite" (click)="addFavorite()"></ion-icon>
+      <ion-icon name="heart-dislike-outline" *ngIf="isFavorite" (click)="removeFavorite()"></ion-icon>
+    </div>
     </ion-card-content>
     <ion-card-content>{{movie.plot}}</ion-card-content>
    </ion-card>

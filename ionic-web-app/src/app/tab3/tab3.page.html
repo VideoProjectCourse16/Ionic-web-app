@@ -8,8 +8,12 @@
     <p *ngIf="isTokenSetted">Favorites:</p>
     <app-login *ngIf="!(isTokenSetted)"></app-login>
 
-    <div *ngFor="let item of Favorites">
-        <ion-card>
+    <!-- <div *ngFor="let favorite of favorites"> -->
+        <ion-list *ngIf="favorites.length>0">
+            <ion-item *ngFor="let favorite of favorites" (click)="goToSpecificMovie(favorite.id)">
+              <ion-label> {{favorite?.title}}</ion-label>
+            </ion-item>
+        <!-- <ion-card>
             <ion-card-header>
                 <ion-card-title>{{item.title}}</ion-card-title>
                 <ion-card-subtitle>{{item.genre}}</ion-card-subtitle>
@@ -19,6 +23,6 @@
                 <ion-icon name="star"></ion-icon>
             </ion-card-content>
             <ion-card-content>{{item.plot}}</ion-card-content>
-        </ion-card>
-    </div>
+        </ion-card> -->
+    <!-- </div> -->
 </ion-content>
