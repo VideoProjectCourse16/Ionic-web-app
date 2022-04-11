@@ -25,8 +25,7 @@ export class Tab2Page implements OnInit{
   }
 
   goToSpecificMovie(idMovie:string){
-    this.router.navigate([`../single-movie/${idMovie}`], {state: {idMovie}, relativeTo:this.route})
-     
+    this.router.navigate([`../single-movie/${idMovie}`], {state: {idMovie}, relativeTo:this.route}) 
    }
 
 

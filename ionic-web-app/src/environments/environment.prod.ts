@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  primeEndpoint:'https://videoprojectcourse16.herokuapp.com/'
+  primeEndpoint:'http://localhost:3001/'
 };
