@@ -17,7 +17,7 @@
     <ion-content [fullscreen]="true">
         <ion-list *ngIf="favorites.length>0">
           <ion-item *ngFor="let favorite of favorites" (click)="goToSpecificMovie(movie.id)">
-            <ion-label> {{favorite?.title}}</ion-label>
+            <ion-label> {{favorite.title}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>
