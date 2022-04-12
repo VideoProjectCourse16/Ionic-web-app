@@ -9,11 +9,19 @@
     <app-login *ngIf="!(isTokenSetted)"></app-login>
 
     <!-- <div *ngFor="let favorite of favorites"> -->
+    <!-- <ion-list *ngIf="favorites.length>0">
+        <ion-item *ngFor="let favorite of favorites" (click)="goToSpecificMovie(favorite.id)">
+            <ion-label> {{favorite?.title}}</ion-label>
+        </ion-item>
+    </ion-list> -->
+    <ion-content [fullscreen]="true">
         <ion-list *ngIf="favorites.length>0">
-            <ion-item *ngFor="let favorite of favorites" (click)="goToSpecificMovie(favorite.id)">
-              <ion-label> {{favorite?.title}}</ion-label>
-            </ion-item>
-        <!-- <ion-card>
+          <ion-item *ngFor="let favorite of favorites" (click)="goToSpecificMovie(movie.id)">
+            <ion-label> {{favorite?.title}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    <!-- <ion-card>
             <ion-card-header>
                 <ion-card-title>{{item.title}}</ion-card-title>
                 <ion-card-subtitle>{{item.genre}}</ion-card-subtitle>

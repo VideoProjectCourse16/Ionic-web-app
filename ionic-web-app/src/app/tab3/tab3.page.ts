@@ -22,12 +22,13 @@ url:string = "https://www.youtube.com/embed/"
   async ngOnInit() {
     this.isTokenSetted = (this.service.accessToken !== null) ? true : false;
     this.getFavorites();
+    console.log("favorites",this.favorites)
   }
 
   async getFavorites(){
     const favoritesResponse:Favorite[]=(await this.service.getFavorites()).favorites;
       favoritesResponse.map(async favorite=>{
-      this.service.specificMovie(Number(favorite.id)).subscribe((response: Movie) => {
+      this.service.specificMovie(Number(favorite.movieId)).subscribe((response: Movie) => {
         this.favorites.push(response);
       })
     })
